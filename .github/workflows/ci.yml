@@ -3,7 +3,7 @@ name: CI/CD Workflow
 on:
   push:
     branches:
-      - main
+      - FIAE24M
   workflow_dispatch:
 
 jobs:
@@ -61,11 +61,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/$(basename ${{ github.repository }})-rest-api
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/lf9_final_fidp23n-rest-api
           docker build -t ghcr.io/dervonnebe/lf9_final_fidp23n-rest-api:${{ github.sha }} .
 
       - name: Push Docker Image to GHCR
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/$(basename lf9_final_fidp23n-rest-api
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/lf9_final_fidp23n-rest-api
           docker push $IMAGE_NAME:${{ github.sha }}
           docker push $IMAGE_NAME:latest
